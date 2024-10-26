@@ -1,6 +1,6 @@
 # CGKN (Conditional Gaussian Koopman Network)
 
-## A Deep Learning Framework for Modeling Complex Dynamical Systems: State Prediction and Data Assimilation <br>
+## A Deep Learning Framework for Modeling Complex Dynamical Systems: State Prediction, Data Assimilation and Uncertainty Quantification
 
 This repository contains the code for the paper:
 - [Operator Learning for Continuous Spatial-Temporal Model with Gradient-Based and Derivative-Free Optimization Methods
