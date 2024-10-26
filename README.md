@@ -1,1 +1,2 @@
-# Conditional Gaussian Koopman Network
+
+# CGKN [Conditional Gaussian Koopman Network]
