@@ -1,4 +1,4 @@
-# CGKN [Conditional Gaussian Koopman Network]
+# CGKN: Conditional Gaussian Koopman Network
 
 ## A Deep Learning Framework for Modeling Complex Dynamical Systems, State Prediction, Data Assimilation and Uncertainty Quantification
 
