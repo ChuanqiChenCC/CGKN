@@ -7,7 +7,7 @@ This repository contains the code for the paper:
 ](https://arxiv.org/abs/2410.20072)
 
 ## Highlights:
-- Modeling Complex Systems for both State Prediction and Data Assimilation  
+- Modeling Complex Systems for State Prediction and Data Assimilation  
 - Efficient Data Assimilation via Analytically Solvable Formulae
 - Uncertainty Quantification via Residual Analysis
   
