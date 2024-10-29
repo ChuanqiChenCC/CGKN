@@ -12,6 +12,13 @@ This repository contains the code for the paper:
 - Efficient Data Assimilation by Analytically Solvable Formulae
 - Uncertainty Quantification for the Estimated States
 
+<p align="center">
+<img align="middle" src="./assets/SchematicDiagram1.pdf" alt="SchematicDiagram" width="1200"  />
+</p>
+
+<p align="center">
+<img align="middle" src="./assets/SchematicDiagram2.pdf" alt="SchematicDiagram" width="1200"  />
+</p>
 ## Citations
 ```
 @misc{chen2024cgkndeeplearningframework,
