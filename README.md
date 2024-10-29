@@ -19,6 +19,8 @@ This repository contains the code for the paper:
 <p align="center">
 <img align="middle" src="./assets/CGKN(SchematicDiagram2).png" alt="SchematicDiagram" width="1200"  />
 </p>
+
+
 ## Citations
 ```
 @misc{chen2024cgkndeeplearningframework,
