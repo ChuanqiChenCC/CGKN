@@ -13,11 +13,11 @@ This repository contains the code for the paper:
 - Uncertainty Quantification for the Estimated States
 
 <p align="center">
-<img align="middle" src="./assets/CGKN(SchematicDiagram1).png" alt="SchematicDiagram" width="1200"  />
+<img align="middle" src="./assets/CGKN(SchematicDiagram1).png" alt="SchematicDiagram" width="1000"  />
 </p>
 
 <p align="center">
-<img align="middle" src="./assets/CGKN(SchematicDiagram2).png" alt="SchematicDiagram" width="1200"  />
+<img align="middle" src="./assets/CGKN(SchematicDiagram2).png" alt="SchematicDiagram" width="1000"  />
 </p>
 
 
