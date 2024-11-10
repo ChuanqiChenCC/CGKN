@@ -378,7 +378,7 @@ class UncertaintyNet(nn.Module):
     def forward(self, x):
         # x is u1
         out = self.net(x)
-        # out is 2*std
+        # out is std
         return out
 
 epochs = 500
