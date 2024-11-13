@@ -23,7 +23,7 @@ plt.rcParams["text.latex.preamble"] = r"\usepackage{amsmath}"
 ###################################################
 beta_x, beta_y, beta_z = 0.2, -0.3, -0.5
 sigma_x, sigma_y, sigma_z = 0.3, 0.5, 0.5
-alpha = 3
+alpha = 5
 
 Lt = 1000
 dt = 0.001
