@@ -23,7 +23,7 @@ This repository contains the code for the paper:
 
 ## Citations
 ```
-@misc{chen2024cgkndeeplearningframework,
+@misc{chen2024cgkn,
       title={CGKN: A Deep Learning Framework for Modeling Complex Dynamical Systems and Efficient Data Assimilation}, 
       author={Chuanqi Chen and Nan Chen and Yinling Zhang and Jin-Long Wu},
       year={2024},
