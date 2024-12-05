@@ -23,13 +23,11 @@ This repository contains the code for the paper:
 
 ## Citations
 ```
-@misc{chen2024cgkn,
-      title={{CGKN}: A Deep Learning Framework for Modeling Complex Dynamical Systems and Efficient Data Assimilation}, 
-      author={Chuanqi Chen and Nan Chen and Yinling Zhang and Jin-Long Wu},
-      year={2024},
-      eprint={2410.20072},
-      archivePrefix={arXiv},
-      primaryClass={cs.LG},
-      url={https://arxiv.org/abs/2410.20072}, 
+@article{chen2024cgkn,
+  title={{CGKN}: A Deep Learning Framework for Modeling Complex Dynamical Systems and Efficient Data Assimilation},
+  author={Chuanqi Chen and Nan Chen and Yinling Zhang and Jin-Long Wu},
+  journal={arXiv preprint arXiv:2410.20072},
+  year={2024}
 }
+
 ```
