@@ -9,7 +9,6 @@ import torch.nn.functional as nnF
 import torchdiffeq
 import time
 
-path_abs = r"C:\Users\chenc\CodeProject\CGKN\ENSO"
 device = "cpu"
 torch.manual_seed(0)
 np.random.seed(0)
@@ -22,8 +21,8 @@ plt.rcParams["text.latex.preamble"] = r"\usepackage{amsmath}"
 ############# Data Import ###############
 #########################################
 
-train_ENSO_mat = sp.io.loadmat(path_abs + "/Data/ENSO_model_data1.mat")
-test_ENSO_mat = sp.io.loadmat(path_abs + "/Data/ENSO_model_data2.mat")
+train_ENSO_mat = sp.io.loadmat("Data/ENSO_model_data1.mat")
+test_ENSO_mat = sp.io.loadmat("Data/ENSO_model_data2.mat")
 dt = 1/360
 
 train_u = np.vstack([np.array(train_ENSO_mat[key]) for key in ["T_W_model", "T_C_model", "T_E_model", "wind_burst_model", "H_W_model", "H_C_model", "H_E_model" ]] ).T
@@ -82,12 +81,12 @@ test_lead_steps_6m = int(6/12/dt)
 test_lead_steps_9m = int(9/12/dt)
 test_lead_steps_12m = int(12/12/dt)
 
-cgkn_test_nrmse_lst = np.load(path_abs + "/Data/cgkn_test_nrmse_lst.npy")
-cgkn_test_corr_lst = np.load(path_abs + "/Data/cgkn_test_corr_lst.npy")
-KoopmanLinear_test_nrmse_lst = np.load(path_abs + "/Data/KoopmanLinear_test_nrmse_lst.npy")
-KoopmanLinear_test_corr_lst = np.load(path_abs + "/Data/KoopmanLinear_test_corr_lst.npy")
-reg_test_nrmse_lst = np.load(path_abs + "/Data/reg_test_nrmse_lst.npy")
-reg_test_corr_lst = np.load(path_abs + "/Data/reg_test_corr_lst.npy")
+cgkn_test_nrmse_lst = np.load("Data/cgkn_test_nrmse_lst.npy")
+cgkn_test_corr_lst = np.load("Datacgkn_test_corr_lst.npy")
+KoopmanLinear_test_nrmse_lst = np.load("Data/KoopmanLinear_test_nrmse_lst.npy")
+KoopmanLinear_test_corr_lst = np.load("Data/KoopmanLinear_test_corr_lst.npy")
+reg_test_nrmse_lst = np.load("Data/reg_test_nrmse_lst.npy")
+reg_test_corr_lst = np.load("Data/reg_test_corr_lst.npy")
 persistence_test_nrmse_lst = []
 persistence_test_corr_lst = []
 for m in range(1, 13):
@@ -98,18 +97,18 @@ for m in range(1, 13):
 persistence_test_nrmse_lst = np.array(persistence_test_nrmse_lst)
 persistence_test_corr_lst = np.array(persistence_test_corr_lst)
 
-cgkn_test_leadPred_3m = np.load( path_abs + "/Data/cgkn_3MsLeadForecast(1000Yto1100Y).npy" )
-cgkn_test_leadPred_6m = np.load( path_abs + "/Data/cgkn_6MsLeadForecast(1000Yto1100Y).npy" )
-cgkn_test_leadPred_9m = np.load( path_abs + "/Data/cgkn_9MsLeadForecast(1000Yto1100Y).npy" )
-cgkn_test_leadPred_12m = np.load( path_abs + "/Data/cgkn_12MsLeadForecast(1000Yto1100Y).npy" )
-KoopmanLinear_test_leadPred_3m = np.load( path_abs + "/Data/KoopmanLinear_3MsLeadForecast(1000Yto1100Y).npy" )
-KoopmanLinear_test_leadPred_6m = np.load( path_abs + "/Data/KoopmanLinear_6MsLeadForecast(1000Yto1100Y).npy" )
-KoopmanLinear_test_leadPred_9m = np.load( path_abs + "/Data/KoopmanLinear_9MsLeadForecast(1000Yto1100Y).npy" )
-KoopmanLinear_test_leadPred_12m = np.load( path_abs + "/Data/KoopmanLinear_12MsLeadForecast(1000Yto1100Y).npy" )
-reg_test_leadPred_3m = np.load( path_abs + "/Data/reg_3MsLeadForecast(1000Yto1100Y).npy" )
-reg_test_leadPred_6m = np.load( path_abs + "/Data/reg_6MsLeadForecast(1000Yto1100Y).npy" )
-reg_test_leadPred_9m = np.load( path_abs + "/Data/reg_9MsLeadForecast(1000Yto1100Y).npy" )
-reg_test_leadPred_12m = np.load( path_abs + "/Data/reg_12MsLeadForecast(1000Yto1100Y).npy" )
+cgkn_test_leadPred_3m = np.load("Data/cgkn_3MsLeadForecast(1000Yto1100Y).npy" )
+cgkn_test_leadPred_6m = np.load("Data/cgkn_6MsLeadForecast(1000Yto1100Y).npy" )
+cgkn_test_leadPred_9m = np.load("Data/cgkn_9MsLeadForecast(1000Yto1100Y).npy" )
+cgkn_test_leadPred_12m = np.load("Data/cgkn_12MsLeadForecast(1000Yto1100Y).npy" )
+KoopmanLinear_test_leadPred_3m = np.load("Data/KoopmanLinear_3MsLeadForecast(1000Yto1100Y).npy" )
+KoopmanLinear_test_leadPred_6m = np.load("Data/KoopmanLinear_6MsLeadForecast(1000Yto1100Y).npy" )
+KoopmanLinear_test_leadPred_9m = np.load("Data/KoopmanLinear_9MsLeadForecast(1000Yto1100Y).npy" )
+KoopmanLinear_test_leadPred_12m = np.load("Data/KoopmanLinear_12MsLeadForecast(1000Yto1100Y).npy" )
+reg_test_leadPred_3m = np.load("Data/reg_3MsLeadForecast(1000Yto1100Y).npy" )
+reg_test_leadPred_6m = np.load("Data/reg_6MsLeadForecast(1000Yto1100Y).npy" )
+reg_test_leadPred_9m = np.load("Data/reg_9MsLeadForecast(1000Yto1100Y).npy" )
+reg_test_leadPred_12m = np.load("Data/reg_12MsLeadForecast(1000Yto1100Y).npy" )
 persistence_test_leadPred_3m = test_u[int(1000/dt):int(1100/dt)-test_lead_steps_3m]
 persistence_test_leadPred_6m = test_u[int(1000/dt):int(1100/dt)-test_lead_steps_3m]
 persistence_test_leadPred_9m = test_u[int(1000/dt):int(1100/dt)-test_lead_steps_3m]
@@ -188,8 +187,8 @@ lege_handle, lege_label = ax1.get_legend_handles_labels()
 lege = fig.legend(handles=[lege_handle[i] for i in [0,2,1,4,3]], labels=[lege_label[i] for i in [0,2,1,4,3]], fontsize=30, loc="upper center", ncol=3, fancybox=False, edgecolor="black", bbox_to_anchor=(0.525, 1))
 lege.get_frame().set_linewidth(1)
 fig.subplots_adjust(top=0.91, wspace=0.3, hspace=0.45)
-# fig.savefig(path_abs + "/Figs/ENSO_LeadForecast.png")
-# fig.savefig(path_abs + "/Figs/ENSO_LeadForecast.pdf")
+# fig.savefig("Figs/ENSO_LeadForecast.png")
+# fig.savefig("Figs/ENSO_LeadForecast.pdf")
 
 
 #################################################################
@@ -197,10 +196,10 @@ fig.subplots_adjust(top=0.91, wspace=0.3, hspace=0.45)
 #################################################################
 
 test_u2 = test_u[:, 4:]
-cgkn_DA_mean = np.load(path_abs + "/Data/cgkn_DA_mean.npy")
-cgkn_DA_std = np.load(path_abs + "/Data/cgkn_DA_std.npy")
-# KoopmanLinear_DA_mean = np.load(path_abs + "/Data/KoopmanLinear_DA_mean.npy")
-# KoopmanLinear_DA_std = np.load(path_abs + "/Data/KoopmanLinear_DA_mean.npy")
+cgkn_DA_mean = np.load("Data/cgkn_DA_mean.npy")
+cgkn_DA_std = np.load("Data/cgkn_DA_std.npy")
+# KoopmanLinear_DA_mean = np.load("Data/KoopmanLinear_DA_mean.npy")
+# KoopmanLinear_DA_std = np.load("Data/KoopmanLinear_DA_mean.npy")
 
 
 si = int(1020/dt)
@@ -231,8 +230,8 @@ fig.tight_layout()
 lege = fig.legend(fontsize=30, loc="upper center", ncol=3, fancybox=False, edgecolor="black", bbox_to_anchor=(0.525, 1)) #
 lege.get_frame().set_linewidth(1)
 fig.subplots_adjust(top=0.92)
-fig.savefig(path_abs + "/Figs/ENSO_DA.png")
-fig.savefig(path_abs + "/Figs/ENSO_DA.pdf")
+# fig.savefig("Figs/ENSO_DA.png")
+# fig.savefig("Figs/ENSO_DA.pdf")
 
 
 
@@ -290,5 +289,5 @@ fig.savefig(path_abs + "/Figs/ENSO_DA.pdf")
 # lege = fig.legend(handles=lege_handles, labels=lege_labels, fontsize=25, loc="upper center", ncol=4, fancybox=False, edgecolor="black", bbox_to_anchor=(0.525, 1)) #
 # lege.get_frame().set_linewidth(1)
 # fig.subplots_adjust(top=0.9)
-# fig.savefig(path_abs + "/Figs/ENSO_DA.png")
-# fig.savefig(path_abs + "/Figs/ENSO_DA.pdf")
+# fig.savefig("Figs/ENSO_DA.png")
+# fig.savefig("Figs/ENSO_DA.pdf")
