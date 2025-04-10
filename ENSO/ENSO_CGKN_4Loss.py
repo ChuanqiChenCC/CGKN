@@ -17,7 +17,6 @@ import torch.nn.functional as nnF
 import torchdiffeq
 import time
 
-path_abs = r"C:\Users\Patron\CodeProjects\CGKN\ENSO"
 device = "cpu"
 torch.manual_seed(0)
 np.random.seed(0)
@@ -30,8 +29,8 @@ plt.rcParams["text.latex.preamble"] = r"\usepackage{amsmath}"
 ############# Data Import ###############
 #########################################
 
-train_ENSO_mat = sp.io.loadmat(path_abs + "/Data/ENSO_model_data1.mat")
-test_ENSO_mat = sp.io.loadmat(path_abs + "/Data/ENSO_model_data2.mat")
+train_ENSO_mat = sp.io.loadmat("Data/ENSO_model_data1.mat")
+test_ENSO_mat = sp.io.loadmat("Data/ENSO_model_data2.mat")
 dt = 1/360
 
 train_u = np.vstack([np.array(train_ENSO_mat[key]) for key in ["T_W_model", "T_C_model", "T_E_model", "wind_burst_model", "H_W_model", "H_C_model", "H_E_model" ]] ).T
