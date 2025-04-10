@@ -10,7 +10,7 @@ This repository contains the code for the paper:
 - Modeling Complex Systems for Data Assimilation and State Forecast
 - State Estimation for Partially-Observed Complex System via Data Assimilation
 - Efficient Data Assimilation by Analytically Solvable Formulae
-- Uncertainty Quantification for the Estimated States
+- Uncertainty Quantification for the Inferene Results
 
 <p align="center">
 <img align="middle" src="./assets/CGKN(SchematicDiagram1).png" alt="SchematicDiagram" width="1000"  />
