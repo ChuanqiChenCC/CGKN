@@ -4,8 +4,6 @@
 # Target Loss (3): AE Loss + Forecast Loss + DA Loss
 # Forecast Loss: TW, TC, TE, HW, HC, HE with Path-wise MSE in Original Space
 # Knowledge-based model for Normalized Data
-import os.path
-
 import numpy as np
 import scipy as sp
 import matplotlib as mpl
@@ -17,7 +15,6 @@ import torch.nn.functional as nnF
 import torchdiffeq
 import time
 
-path_abs = r"C:\Users\chenc\CodeProject\CGKN\ENSO"
 device = "cpu"
 torch.manual_seed(0)
 np.random.seed(0)
@@ -29,8 +26,8 @@ plt.rcParams["text.latex.preamble"] = r"\usepackage{amsmath}"
 #########################################
 ############# Data Import ###############
 #########################################
-train_ENSO_mat = sp.io.loadmat(path_abs + r"/Data/ENSO_model_data1.mat")
-test_ENSO_mat = sp.io.loadmat(path_abs + r"/Data/ENSO_model_data2.mat")
+train_ENSO_mat = sp.io.loadmat(r"Data/ENSO_model_data1.mat")
+test_ENSO_mat = sp.io.loadmat(r"Data/ENSO_model_data2.mat")
 dt = 1/360
 train_u = np.vstack([np.array(train_ENSO_mat[key]) for key in ["T_W_model", "T_C_model", "T_E_model", "wind_burst_model", "H_W_model", "H_C_model", "H_E_model" ]] ).T
 train_u_dot = np.diff(train_u, axis=0)/dt
