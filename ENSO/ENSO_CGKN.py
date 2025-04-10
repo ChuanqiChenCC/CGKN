@@ -16,7 +16,6 @@ import torch.nn.functional as nnF
 import torchdiffeq
 import time
 
-path_abs = r"C:\Users\chenc\CodeProject\CGKN\ENSO"
 device = "cpu"
 torch.manual_seed(0)
 np.random.seed(0)
@@ -29,8 +28,8 @@ plt.rcParams["text.latex.preamble"] = r"\usepackage{amsmath}"
 ############# Data Import ###############
 #########################################
 
-train_ENSO_mat = sp.io.loadmat(path_abs + "/Data/ENSO_model_data1.mat")
-test_ENSO_mat = sp.io.loadmat(path_abs + "/Data/ENSO_model_data2.mat")
+train_ENSO_mat = sp.io.loadmat("Data/ENSO_model_data1.mat")
+test_ENSO_mat = sp.io.loadmat("Data/ENSO_model_data2.mat")
 dt = 1/360
 
 train_u = np.vstack([np.array(train_ENSO_mat[key]) for key in ["T_W_model", "T_C_model", "T_E_model", "wind_burst_model", "H_W_model", "H_C_model", "H_E_model" ]] ).T
@@ -220,12 +219,12 @@ for ep in range(1, epochs+1):
           " loss ae:", round(train_loss_ae, 4),
           " loss fore z:", round(train_loss_forecast_z, 4))
 
-# torch.save(cgkn.state_dict(), path_abs + r"/Models/Model_CGKN/ENSO_CGKN_TH_6Months_3Loss_Normalized_dimz15_stage1.pt")
-# np.save(path_abs + r"/Models/Model_CGKN/ENSO_CGKN_TH_6Months_3Loss_Normalized_dimz15_train_loss_forecast_history_stage1.npy", train_loss_forecast_history)
-# np.save(path_abs + r"/Models/Model_CGKN/ENSO_CGKN_TH_6Months_3Loss_Normalized_dimz15_train_loss_ae_history_stage1.npy", train_loss_ae_history)
-# np.save(path_abs + r"/Models/Model_CGKN/ENSO_CGKN_TH_6Months_3Loss_Normalized_dimz15_train_loss_forecast_z_history_stage1.npy", train_loss_forecast_z_history)
+# torch.save(cgkn.state_dict(), r"Models/Model_CGKN/ENSO_CGKN_TH_6Months_3Loss_Normalized_dimz15_stage1.pt")
+# np.save(r"Models/Model_CGKN/ENSO_CGKN_TH_6Months_3Loss_Normalized_dimz15_train_loss_forecast_history_stage1.npy", train_loss_forecast_history)
+# np.save(r"Models/Model_CGKN/ENSO_CGKN_TH_6Months_3Loss_Normalized_dimz15_train_loss_ae_history_stage1.npy", train_loss_ae_history)
+# np.save(r"Models/Model_CGKN/ENSO_CGKN_TH_6Months_3Loss_Normalized_dimz15_train_loss_forecast_z_history_stage1.npy", train_loss_forecast_z_history)
 
-cgkn.load_state_dict(torch.load(path_abs + r"/Models/Model_CGKN/ENSO_CGKN_TH_12Months_3Loss_Normalized_dimz10_stage1.pt"))
+cgkn.load_state_dict(torch.load(r"Models/Model_CGKN/ENSO_CGKN_TH_12Months_3Loss_Normalized_dimz10_stage1.pt"))
 
 
 # Model Diagnosis in Physical Space
@@ -370,13 +369,13 @@ for ep in range(1, epochs+1):
           " loss fore z:", round(loss_forecast_z.item(), 4))
 
 
-# torch.save(cgkn.state_dict(), path_abs + r"/Models/Model_CGKN/ENSO_CGKN_TH_6Months_3Loss_Normalized_dimz15_stage2.pt")
-# np.save(path_abs + r"/Models/Model_CGKN/ENSO_CGKN_TH_6Months_3Loss_Normalized_dimz15_train_loss_forecast_history_stage2.npy", train_loss_forecast_history)
-# np.save(path_abs + r"/Models/Model_CGKN/ENSO_CGKN_TH_6Months_3Loss_Normalized_dimz15_train_loss_ae_history_stage2.npy", train_loss_ae_history)
-# np.save(path_abs + r"/Models/Model_CGKN/ENSO_CGKN_TH_6Months_3Loss_Normalized_dimz15_train_loss_forecast_z_history_stage2.npy", train_loss_forecast_z_history)
-# np.save(path_abs + r"/Models/Model_CGKN/ENSO_CGKN_TH_6Months_3Loss_Normalized_dimz15_train_loss_da_history_stage2.npy", train_loss_da_history)
+# torch.save(cgkn.state_dict(), r"Models/Model_CGKN/ENSO_CGKN_TH_6Months_3Loss_Normalized_dimz15_stage2.pt")
+# np.save(r"Models/Model_CGKN/ENSO_CGKN_TH_6Months_3Loss_Normalized_dimz15_train_loss_forecast_history_stage2.npy", train_loss_forecast_history)
+# np.save(r"Models/Model_CGKN/ENSO_CGKN_TH_6Months_3Loss_Normalized_dimz15_train_loss_ae_history_stage2.npy", train_loss_ae_history)
+# np.save(r"Models/Model_CGKN/ENSO_CGKN_TH_6Months_3Loss_Normalized_dimz15_train_loss_forecast_z_history_stage2.npy", train_loss_forecast_z_history)
+# np.save(r"Models/Model_CGKN/ENSO_CGKN_TH_6Months_3Loss_Normalized_dimz15_train_loss_da_history_stage2.npy", train_loss_da_history)
 
-cgkn.load_state_dict(torch.load(path_abs + r"/Models/Model_CGKN/ENSO_CGKN_TH_12Months_3Loss_Normalized_dimz10_stage2.pt"))
+cgkn.load_state_dict(torch.load(r"Models/Model_CGKN/ENSO_CGKN_TH_12Months_3Loss_Normalized_dimz10_stage2.pt"))
 
 ########################################################################################
 ################# Uncertainty Quantification for DA by Residual Analysis ###############
@@ -443,10 +442,10 @@ for ep in range(1, epochs+1):
     print(ep," time:", round(end_time - start_time, 4),
           " loss uncertainty:", round(train_loss_uncertainty, 4))
 
-torch.save(uncertainty_net.state_dict(), path_abs + r"/Models/Model_CGKN/ENSO_UQNet_TH_12Months_3Loss_Normalized_dimz10.pt")
-np.save(path_abs + r"/Models/Model_CGKN/ENSO_UQNet_TH_12Months_3Loss_Normalized_dimz10_train_loss_uncertainty_history.npy", train_loss_uncertainty_history)
+torch.save(uncertainty_net.state_dict(), r"Models/Model_CGKN/ENSO_UQNet_TH_12Months_3Loss_Normalized_dimz10.pt")
+np.save(r"Models/Model_CGKN/ENSO_UQNet_TH_12Months_3Loss_Normalized_dimz10_train_loss_uncertainty_history.npy", train_loss_uncertainty_history)
 
-# uncertainty_net.load_state_dict(torch.load(path_abs + r"/Models/Model_CGKN/ENSO_UQNet_TH_12Months_3Loss_Normalized_dimz10.pt"))
+# uncertainty_net.load_state_dict(torch.load(r"Models/Model_CGKN/ENSO_UQNet_TH_12Months_3Loss_Normalized_dimz10.pt"))
 
 
 #############################################
@@ -523,8 +522,8 @@ NRMSE(test_u[cut_point:, indices_u2], test_mu_pred[cut_point:])
 with torch.no_grad():
     test_mu_std_pred = uncertainty_net(test_u[:, indices_u1])
 
-np.save(path_abs + r"/Data/cgkn_DA_mean.npy", test_mu_pred)
-np.save(path_abs + r"/Data/cgkn_DA_std.npy", test_mu_std_pred)
+np.save(r"Data/cgkn_DA_mean.npy", test_mu_pred)
+np.save(r"Data/cgkn_DA_std.npy", test_mu_std_pred)
 
 
 # CGKN: Number of Parameters
