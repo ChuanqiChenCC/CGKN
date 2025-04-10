@@ -16,7 +16,6 @@ import torchdiffeq
 import time
 
 
-path_abs = r"C:\Users\chenc\CodeProject\CGKN\ENSO"
 device = "cuda:1"
 torch.manual_seed(0)
 np.random.seed(0)
@@ -29,8 +28,8 @@ plt.rcParams["text.latex.preamble"] = r"\usepackage{amsmath}"
 ############# Data Import ###############
 #########################################
 
-train_ENSO_mat = sp.io.loadmat(path_abs + "/Data/ENSO_model_data1.mat")
-test_ENSO_mat = sp.io.loadmat(path_abs + "/Data/ENSO_model_data2.mat")
+train_ENSO_mat = sp.io.loadmat("Data/ENSO_model_data1.mat")
+test_ENSO_mat = sp.io.loadmat("Data/ENSO_model_data2.mat")
 dt = 1/360
 
 train_u = np.vstack([np.array(train_ENSO_mat[key]) for key in ["T_W_model", "T_C_model", "T_E_model", "wind_burst_model", "H_W_model", "H_C_model", "H_E_model"]] ).T
@@ -124,11 +123,11 @@ for ep in range(1, epochs+1):
     print(ep, " time:", round(end_time-start_time, 4),
           " loss:", round(loss.item(), 4))
 
-# torch.save(dynet.state_dict(), path_abs + r"/Models/Model_FNN/ENSO_FNN_TH_12Months_Normalized.pt")
-# np.save(path_abs + r"/Models/Model_FNN/ENSO_FNN_TH_12Months_Normalized_train_loss_history.npy", train_loss_history)
+# torch.save(dynet.state_dict(), r"Models/Model_FNN/ENSO_FNN_TH_12Months_Normalized.pt")
+# np.save(r"Models/Model_FNN/ENSO_FNN_TH_12Months_Normalized_train_loss_history.npy", train_loss_history)
 
-dynet.load_state_dict(torch.load(path_abs + r"/Models/Model_FNN/ENSO_FNN_TH_12Months_Normalized.pt"))
-train_loss_history = np.load(path_abs + r"/Models/Model_FNN/ENSO_FNN_TH_12Months_Normalized_train_loss_history.npy")
+dynet.load_state_dict(torch.load(r"Models/Model_FNN/ENSO_FNN_TH_12Months_Normalized.pt"))
+train_loss_history = np.load(r"Models/Model_FNN/ENSO_FNN_TH_12Months_Normalized_train_loss_history.npy")
 
 
 ##############################################
