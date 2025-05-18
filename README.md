@@ -23,7 +23,7 @@ This repository contains the code for the paper:
 
 ## Citations
 ```
-@article{chen2025CGKN,
+@article{chen2025cgkn,
   title = {{CGKN}: A Deep Learning Framework for Modeling Complex Dynamical Systems and Efficient Data Assimilation},
   author = {Chuanqi Chen and Nan Chen and Yinling Zhang and Jin-Long Wu},
   journal = {Journal of Computational Physics},
